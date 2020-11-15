@@ -1,0 +1,33 @@
+.input {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-gray);
+  padding: 13px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--black);
+}
+
+.input:focus {
+  border-color: var(--dark-gray);
+}
+
+.inputWithIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-gray);
+  padding: 0 16px;
+}
+
+.inputWithIcon .input {
+  border: none;
+  padding: 13px 0;
+  width: 100%;
+}

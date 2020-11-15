@@ -1,0 +1,29 @@
+.header {
+  background-color: white;
+  width: 100%;
+  padding: 52px 24px 24px;
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  grid-template-areas:
+    'logo button'
+    'search search'
+    'filters filters';
+  row-gap: 25px;
+}
+
+.headerLogo {
+  grid-area: logo;
+  align-self: center;
+}
+
+.headerButton {
+  grid-area: button;
+}
+
+.headerSearch {
+  grid-area: search;
+}
+
+.headerFilters {
+  grid-area: filters;
+}
