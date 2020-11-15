@@ -6,16 +6,10 @@ import Header from 'components/Header/Header';
 import { fetchProducts } from 'api/products';
 import { Search } from 'api/types/ProductsSearch.type';
 import { getQueryVariables, serialize } from 'utils/queryStrings';
+import { ProductsResponse } from 'api/types/ProductsResponse.type';
 
 export const Products = ({ location, history }: RouteComponentProps) => {
   const query = getQueryVariables(location.search);
-  const setLocationBySearch = (search: Search) => {
-    history.push({
-      pathname: '/',
-      search: `?${serialize(search)}`,
-    });
-  };
-
   const [search, setSearch] = useState<Search>({
     limit: !!query.limit ? Number(query.limit) : 8,
     page: !!query.page ? Number(query.page) : 1,
@@ -23,12 +17,18 @@ export const Products = ({ location, history }: RouteComponentProps) => {
     promo: !!query.promo ? Boolean(query.promo) : null,
     active: !!query.active ? Boolean(query.active) : null,
   });
-  const { refetch } = useQuery('fetchProducts', () => fetchProducts(search));
+
+  const { refetch } = useQuery<ProductsResponse>('fetchProducts', () =>
+    fetchProducts(search)
+  );
 
   useEffect(() => {
-    setLocationBySearch(search);
+    history.push({
+      pathname: '/',
+      search: `?${serialize(search)}`,
+    });
     refetch();
-  }, [search]);
+  }, [search, history, refetch]);
 
   return (
     <>
