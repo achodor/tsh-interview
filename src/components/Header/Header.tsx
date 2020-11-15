@@ -1,13 +1,31 @@
 import React from 'react';
 
 import styles from './header.module.css';
-import logo from '../../assets/logo.svg';
-import search from '../../assets/search.svg';
+import logo from 'assets/logo.svg';
+import searchIcon from 'assets/search.svg';
 import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
 import CustomCheckbox from 'components/CustomCheckbox/CustomCheckbox';
+import { Search } from 'api/types/ProductsSearch.type';
 
-const Header = () => {
+type HeadersProps = {
+  search: Search;
+  updateProductsSearch: Function;
+};
+
+const Header = ({ search, updateProductsSearch }: HeadersProps) => {
+  const handleSearchChange = (e: any) => {
+    updateProductsSearch({ ...search, search: e.target.value });
+  };
+
+  const handleActiveChange = (e: any) => {
+    updateProductsSearch({ ...search, active: e.target.checked });
+  };
+
+  const handlePromoChange = (e: any) => {
+    updateProductsSearch({ ...search, promo: e.target.checked });
+  };
+
   return (
     <header className={styles.header}>
       <img className={styles.headerLogo} src={logo} alt="join.tsh.io" />
@@ -18,12 +36,22 @@ const Header = () => {
         className={styles.headerSearch}
         type="text"
         placeholder="Search"
-        icon={search}
+        icon={searchIcon}
         iconAlt="search"
+        value={search.search}
+        onChange={handleSearchChange}
       />
       <div className={styles.headerFilters}>
-        <CustomCheckbox label="Active" />
-        <CustomCheckbox label="Promo" />
+        <CustomCheckbox
+          label="Active"
+          checked={!!search.active}
+          onChange={handleActiveChange}
+        />
+        <CustomCheckbox
+          label="Promo"
+          checked={!!search.promo}
+          onChange={handlePromoChange}
+        />
       </div>
     </header>
   );
