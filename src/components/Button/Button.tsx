@@ -7,11 +7,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   outline?: boolean;
 }
 
-const Button = ({ className, outline, ...props }: ButtonProps) => {
+const Button = ({ className, outline, disabled, ...props }: ButtonProps) => {
   const classNames = clsx(
     styles.button,
     className,
-    outline && styles.buttonOutline
+    outline && styles.buttonOutline,
+    disabled && styles.buttonDisabled
   );
 
   return <button {...props} className={classNames} />;

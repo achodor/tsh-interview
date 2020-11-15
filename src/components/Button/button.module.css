@@ -20,3 +20,13 @@
   border-color: var(--primary);
   color: var(--primary);
 }
+
+.buttonDisabled {
+  background-color: var(--dark-gray);
+  color: white;
+}
+
+.buttonDisabled:hover {
+  background-color: var(--dark-gray);
+  color: white;
+}

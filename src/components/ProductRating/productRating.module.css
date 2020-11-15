@@ -1,0 +1,17 @@
+.rating {
+  display: flex;
+}
+
+.filledStar,
+.borderStar {
+  width: 13px;
+  margin-right: 10px;
+}
+
+.filledStar path {
+  fill: var(--yellow);
+}
+
+.borderStar path {
+  fill: var(--gray);
+}

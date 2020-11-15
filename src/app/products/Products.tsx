@@ -7,6 +7,7 @@ import { fetchProducts } from 'api/products';
 import { Search } from 'api/types/ProductsSearch.type';
 import { getQueryVariables, serialize } from 'utils/queryStrings';
 import { ProductsResponse } from 'api/types/ProductsResponse.type';
+import ProductsList from 'components/ProductsList/ProductsList';
 
 export const Products = ({ location, history }: RouteComponentProps) => {
   const query = getQueryVariables(location.search);
@@ -18,7 +19,7 @@ export const Products = ({ location, history }: RouteComponentProps) => {
     active: !!query.active ? Boolean(query.active) : null,
   });
 
-  const { refetch } = useQuery<ProductsResponse>('fetchProducts', () =>
+  const { data, refetch } = useQuery<ProductsResponse>('fetchProducts', () =>
     fetchProducts(search)
   );
 
@@ -33,6 +34,7 @@ export const Products = ({ location, history }: RouteComponentProps) => {
   return (
     <>
       <Header search={search} updateProductsSearch={setSearch} />
+      {data?.items ? <ProductsList products={data?.items} /> : ''}
     </>
   );
 };
