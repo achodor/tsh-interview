@@ -1,0 +1,43 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+  margin: 40px 0 68px;
+}
+
+.pagination {
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paginationFirstPage,
+.paginationLastPage,
+.paginationPage {
+  cursor: pointer;
+}
+
+.paginationFirstPage,
+.paginationLastPage {
+  width: 33px;
+  text-align: center;
+}
+
+.paginationFirstPage {
+  margin: 0 25px 0 20px;
+}
+
+.paginationLastPage {
+  margin: 0 20px 0 25px;
+}
+
+.paginationDisable {
+  color: var(--dark-gray);
+  cursor: default;
+}
+
+.paginationActivePage {
+  color: var(--primary);
+  cursor: default;
+}

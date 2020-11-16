@@ -1,0 +1,114 @@
+import React from 'react';
+import clsx from 'clsx';
+
+import styles from './pagination.module.css';
+import { ResponseMeta } from 'api/types/ResponseMeta.type';
+import { Search } from 'api/types/ProductsSearch.type';
+
+type PaginationProps = {
+  meta: ResponseMeta;
+  search: Search;
+  updateProductsSearch: Function;
+};
+
+const Pagination = ({
+  meta,
+  search,
+  updateProductsSearch,
+}: PaginationProps) => {
+  const paginationPartLength = 3;
+  const paginationFirstPageClasses = clsx(
+    styles.paginationFirstPage,
+    Number(meta.currentPage) === 1 && styles.paginationDisable
+  );
+  const paginationLastPageClasses = clsx(
+    styles.paginationLastPage,
+    Number(meta.currentPage) === meta.totalPages && styles.paginationDisable
+  );
+
+  const paginationPageClasses = (page: number) => {
+    return clsx(
+      styles.paginationPage,
+      Number(meta.currentPage) === page && styles.paginationActivePage
+    );
+  };
+
+  const firstPaginationPart = (): number[] => {
+    const currentPage = Number(meta.currentPage);
+    if (currentPage === 1) {
+      return [currentPage, currentPage + 1, currentPage + 2];
+    }
+
+    if (currentPage >= meta.totalPages - paginationPartLength) {
+      return [1, 2, 3];
+    }
+
+    return [currentPage - 1, currentPage, currentPage + 1];
+  };
+
+  const secondPaginationPart = (): number[] => {
+    const currentPage = Number(meta.currentPage);
+    if (
+      currentPage === meta.totalPages ||
+      currentPage < meta.totalPages - paginationPartLength
+    ) {
+      return [meta.totalPages - 2, meta.totalPages - 1, meta.totalPages];
+    }
+
+    return [currentPage - 1, currentPage, currentPage + 1];
+  };
+
+  const handlePageChange = (page: number) => {
+    if (search.page === page) {
+      return;
+    }
+
+    updateProductsSearch({ ...search, page: page });
+    window.scrollTo(0, 0);
+  };
+
+  const shouldShowPaginationDivider =
+    secondPaginationPart()[0] -
+      firstPaginationPart()[firstPaginationPart().length - 1] >
+    1;
+
+  return (
+    <section className={styles.paginationWrapper}>
+      <nav className={styles.pagination}>
+        <span
+          className={paginationFirstPageClasses}
+          onClick={() => handlePageChange(1)}
+        >
+          First
+        </span>
+        {firstPaginationPart().map((page) => (
+          <span
+            key={page}
+            className={paginationPageClasses(page)}
+            onClick={() => handlePageChange(page)}
+          >
+            {page}
+          </span>
+        ))}
+        {shouldShowPaginationDivider ? <span>...</span> : ''}
+        {secondPaginationPart().map((page) => (
+          <span
+            key={page}
+            className={paginationPageClasses(page)}
+            onClick={() => handlePageChange(page)}
+          >
+            {page}
+          </span>
+        ))}
+        <span
+          className={paginationLastPageClasses}
+          onClick={() => handlePageChange(meta.totalPages)}
+        >
+          Last
+        </span>
+      </nav>
+    </section>
+  );
+};
+
+export default Pagination;
