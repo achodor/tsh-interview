@@ -19,11 +19,11 @@ const Header = ({ search, updateProductsSearch }: HeadersProps) => {
   };
 
   const handleActiveChange = (e: any) => {
-    updateProductsSearch({ ...search, active: e.target.checked });
+    updateProductsSearch({ ...search, active: e.target.checked ? true : null });
   };
 
   const handlePromoChange = (e: any) => {
-    updateProductsSearch({ ...search, promo: e.target.checked });
+    updateProductsSearch({ ...search, promo: e.target.checked ? true : null });
   };
 
   return (
