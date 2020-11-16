@@ -9,6 +9,7 @@ import { getQueryVariables, serialize } from 'utils/queryStrings';
 import { ProductsResponse } from 'api/types/ProductsResponse.type';
 import ProductsList from 'components/ProductsList/ProductsList';
 import Pagination from 'components/Pagination/Pagination';
+import EmptyProductsList from 'components/EmptyProductsList/EmptyProductsList';
 
 export const Products = ({ location, history }: RouteComponentProps) => {
   const query = getQueryVariables(location.search);
@@ -35,7 +36,7 @@ export const Products = ({ location, history }: RouteComponentProps) => {
   return (
     <>
       <Header search={search} updateProductsSearch={setSearch} />
-      {data?.items && data?.meta ? (
+      {data?.items.length && data?.meta ? (
         <>
           <ProductsList products={data?.items} />
           <Pagination
@@ -45,7 +46,7 @@ export const Products = ({ location, history }: RouteComponentProps) => {
           />
         </>
       ) : (
-        ''
+        <EmptyProductsList />
       )}
     </>
   );

@@ -1,0 +1,30 @@
+.emptyProductsListWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 24px 24px 0;
+}
+
+.emptyProductsListBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  padding: 118px 24px;
+  border-radius: 8px;
+  width: 600px;
+}
+
+.emptyProductsListBox h2 {
+  margin: 22px 0 8px;
+  font-size: 18px;
+  line-height: 16px;
+  color: var(--black);
+}
+
+.emptyProductsListBox p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--dark-gray);
+}
