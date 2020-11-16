@@ -13,6 +13,16 @@ type ProductProps = {
 const Product = ({ product }: ProductProps) => {
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
+  const handleModalStateChange = (state: boolean) => {
+    setIsProductModalOpen(state);
+    if (state) {
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <>
       <article className={styles.product}>
@@ -36,7 +46,7 @@ const Product = ({ product }: ProductProps) => {
           {product.active ? (
             <Button
               className={styles.productButton}
-              onClick={() => setIsProductModalOpen(true)}
+              onClick={() => handleModalStateChange(true)}
             >
               Show details
             </Button>
@@ -48,7 +58,10 @@ const Product = ({ product }: ProductProps) => {
         </div>
       </article>
       {isProductModalOpen ? (
-        <ProductModal product={product} closeCallback={setIsProductModalOpen} />
+        <ProductModal
+          product={product}
+          closeCallback={handleModalStateChange}
+        />
       ) : (
         ''
       )}
