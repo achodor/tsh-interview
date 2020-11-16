@@ -28,31 +28,33 @@ const Header = ({ search, updateProductsSearch }: HeadersProps) => {
 
   return (
     <header className={styles.header}>
-      <img className={styles.headerLogo} src={logo} alt="join.tsh.io" />
-      <Button className={styles.headerButton} outline>
-        Log in
-      </Button>
-      <Input
-        className={styles.headerSearch}
-        type="text"
-        placeholder="Search"
-        icon={searchIcon}
-        iconAlt="search"
-        value={search.search}
-        onChange={handleSearchChange}
-      />
-      <div className={styles.headerFilters}>
-        <CustomCheckbox
-          label="Active"
-          checked={!!search.active}
-          onChange={handleActiveChange}
+      <section className={styles.headerGrid}>
+        <img className={styles.headerLogo} src={logo} alt="join.tsh.io" />
+        <Button className={styles.headerButton} outline>
+          Log in
+        </Button>
+        <Input
+          className={styles.headerSearch}
+          type="text"
+          placeholder="Search"
+          icon={searchIcon}
+          iconAlt="search"
+          value={search.search}
+          onChange={handleSearchChange}
         />
-        <CustomCheckbox
-          label="Promo"
-          checked={!!search.promo}
-          onChange={handlePromoChange}
-        />
-      </div>
+        <div className={styles.headerFilters}>
+          <CustomCheckbox
+            label="Active"
+            checked={!!search.active}
+            onChange={handleActiveChange}
+          />
+          <CustomCheckbox
+            label="Promo"
+            checked={!!search.promo}
+            onChange={handlePromoChange}
+          />
+        </div>
+      </section>
     </header>
   );
 };

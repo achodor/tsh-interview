@@ -1,6 +1,10 @@
 .header {
   background-color: white;
   width: 100%;
+}
+
+.headerGrid {
+  width: 100%;
   padding: 52px 24px 24px;
   display: grid;
   grid-template-columns: 1fr 90px;
@@ -8,7 +12,23 @@
     'logo button'
     'search search'
     'filters filters';
-  row-gap: 25px;
+  row-gap: 24px;
+}
+
+@media (min-width: 1020px) {
+  .headerGrid {
+    padding: 48px 24px;
+    column-gap: 24px;
+    grid-template-columns: 185px 390px auto 90px;
+    grid-template-areas: 'logo search filters button';
+  }
+}
+
+@media (min-width: 1272px) {
+  .headerGrid {
+    max-width: 1224px;
+    margin: 0 auto;
+  }
 }
 
 .headerLogo {
@@ -18,12 +38,15 @@
 
 .headerButton {
   grid-area: button;
+  align-self: center;
 }
 
 .headerSearch {
   grid-area: search;
+  align-self: center;
 }
 
 .headerFilters {
   grid-area: filters;
+  align-self: center;
 }

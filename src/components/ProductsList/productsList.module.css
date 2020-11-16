@@ -5,3 +5,24 @@
   grid-template-columns: 1fr;
   row-gap: 24px;
 }
+
+@media (min-width: 648px) {
+  .products {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+}
+
+@media (min-width: 960px) {
+  .products {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1272px) {
+  .products {
+    max-width: 1224px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
