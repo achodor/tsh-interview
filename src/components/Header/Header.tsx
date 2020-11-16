@@ -15,15 +15,23 @@ type HeadersProps = {
 
 const Header = ({ search, updateProductsSearch }: HeadersProps) => {
   const handleSearchChange = (e: any) => {
-    updateProductsSearch({ ...search, search: e.target.value });
+    updateProductsSearch({ ...search, search: e.target.value, page: 1 });
   };
 
   const handleActiveChange = (e: any) => {
-    updateProductsSearch({ ...search, active: e.target.checked ? true : null });
+    updateProductsSearch({
+      ...search,
+      active: e.target.checked ? true : null,
+      page: 1,
+    });
   };
 
   const handlePromoChange = (e: any) => {
-    updateProductsSearch({ ...search, promo: e.target.checked ? true : null });
+    updateProductsSearch({
+      ...search,
+      promo: e.target.checked ? true : null,
+      page: 1,
+    });
   };
 
   return (
