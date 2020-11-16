@@ -16,6 +16,8 @@
 .paginationLastPage,
 .paginationPage {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .paginationFirstPage,

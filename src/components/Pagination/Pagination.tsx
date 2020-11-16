@@ -75,37 +75,37 @@ const Pagination = ({
   return (
     <section className={styles.paginationWrapper}>
       <nav className={styles.pagination}>
-        <span
+        <button
           className={paginationFirstPageClasses}
           onClick={() => handlePageChange(1)}
         >
           First
-        </span>
+        </button>
         {firstPaginationPart().map((page) => (
-          <span
+          <button
             key={page}
             className={paginationPageClasses(page)}
             onClick={() => handlePageChange(page)}
           >
             {page}
-          </span>
+          </button>
         ))}
         {shouldShowPaginationDivider ? <span>...</span> : ''}
         {secondPaginationPart().map((page) => (
-          <span
+          <button
             key={page}
             className={paginationPageClasses(page)}
             onClick={() => handlePageChange(page)}
           >
             {page}
-          </span>
+          </button>
         ))}
-        <span
+        <button
           className={paginationLastPageClasses}
           onClick={() => handlePageChange(meta.totalPages)}
         >
           Last
-        </span>
+        </button>
       </nav>
     </section>
   );
