@@ -39,7 +39,7 @@ export const Login = () => {
             <Button className={styles.loginFormButton} type="submit">
               Log in
             </Button>
-            <a href="#" className={styles.loginForgotPassword}>
+            <a href="/login" className={styles.loginForgotPassword}>
               Forgot password?
             </a>
           </form>
