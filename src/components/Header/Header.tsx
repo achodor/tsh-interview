@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './header.module.css';
 import logo from 'assets/logo.svg';
@@ -65,6 +66,11 @@ const Header = ({ search, updateProductsSearch }: HeadersProps) => {
       </section>
     </header>
   );
+};
+
+Header.propTypes = {
+  search: PropTypes.object.isRequired,
+  updateProductsSearch: PropTypes.func,
 };
 
 export default Header;

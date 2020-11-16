@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import styles from './pagination.module.css';
 import { ResponseMeta } from 'api/types/ResponseMeta.type';
@@ -109,6 +110,12 @@ const Pagination = ({
       </nav>
     </section>
   );
+};
+
+Pagination.propTypes = {
+  meta: PropTypes.object.isRequired,
+  search: PropTypes.object.isRequired,
+  updateProductsSearch: PropTypes.func.isRequired,
 };
 
 export default Pagination;

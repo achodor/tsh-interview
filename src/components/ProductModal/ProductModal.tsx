@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './productModal.module.css';
 import { Product } from 'api/types/Product.type';
@@ -40,6 +41,11 @@ const ProductModal = ({ product, closeCallback }: ProductProps) => {
       </div>
     </>
   );
+};
+
+ProductModal.propTypes = {
+  product: PropTypes.object.isRequired,
+  closeCallback: PropTypes.func.isRequired,
 };
 
 export default ProductModal;

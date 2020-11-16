@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './product.module.css';
 import { Product as ProductType } from 'api/types/Product.type';
@@ -67,6 +68,10 @@ const Product = ({ product }: ProductProps) => {
       )}
     </>
   );
+};
+
+Product.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default Product;

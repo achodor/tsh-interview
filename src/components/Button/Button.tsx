@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import styles from './button.module.css';
 
@@ -16,6 +17,10 @@ const Button = ({ className, outline, disabled, ...props }: ButtonProps) => {
   );
 
   return <button {...props} className={classNames} />;
+};
+
+Button.propTypes = {
+  outline: PropTypes.bool,
 };
 
 export default Button;

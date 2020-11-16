@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import styles from './input.module.css';
 
@@ -28,6 +29,13 @@ const Input = ({ label, icon, iconAlt, className, ...props }: InputProps) => {
       )}
     </>
   );
+};
+
+Input.propTypes = {
+  label: PropTypes.string,
+  icon: PropTypes.string,
+  iconAlt: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Input;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './productsList.module.css';
 import { Product as ProductType } from 'api/types/Product.type';
@@ -16,6 +17,10 @@ const ProductsList = ({ products }: ProductsListProps) => {
       ))}
     </section>
   );
+};
+
+ProductsList.propTypes = {
+  products: PropTypes.array.isRequired,
 };
 
 export default ProductsList;

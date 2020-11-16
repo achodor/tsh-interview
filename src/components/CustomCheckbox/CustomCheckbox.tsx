@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './customCheckbox.module.css';
 
@@ -18,6 +19,10 @@ const CustomCheckbox = ({ label, ...props }: CheckboxProps) => {
       {label}
     </label>
   );
+};
+
+CustomCheckbox.propTypes = {
+  label: PropTypes.string.isRequired,
 };
 
 export default CustomCheckbox;

@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import styles from './productRating.module.css';
 import { ReactComponent as Star } from 'assets/star.svg';
@@ -22,6 +23,11 @@ const ProductRating = ({ rating, className }: ProductRatingProps) => {
       ))}
     </div>
   );
+};
+
+ProductRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  className: PropTypes.string,
 };
 
 export default ProductRating;
