@@ -10,6 +10,7 @@ import { ProductsResponse } from 'api/types/ProductsResponse.type';
 import ProductsList from 'components/ProductsList/ProductsList';
 import Pagination from 'components/Pagination/Pagination';
 import EmptyProductsList from 'components/EmptyProductsList/EmptyProductsList';
+import Loader from 'components/Loader/Loader';
 
 export const Products = ({ location, history }: RouteComponentProps) => {
   const query = getQueryVariables(location.search);
@@ -21,8 +22,9 @@ export const Products = ({ location, history }: RouteComponentProps) => {
     active: !!query.active ? Boolean(query.active) : null,
   });
 
-  const { data, refetch } = useQuery<ProductsResponse>('fetchProducts', () =>
-    fetchProducts(search)
+  const { isLoading, data, refetch } = useQuery<ProductsResponse>(
+    'fetchProducts',
+    () => fetchProducts(search)
   );
 
   useEffect(() => {
@@ -36,7 +38,9 @@ export const Products = ({ location, history }: RouteComponentProps) => {
   return (
     <>
       <Header search={search} updateProductsSearch={setSearch} />
-      {data?.items.length && data?.meta ? (
+      {isLoading ? (
+        <Loader />
+      ) : data?.items.length && data?.meta ? (
         <>
           <ProductsList products={data?.items} />
           <Pagination
