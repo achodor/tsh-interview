@@ -9,6 +9,7 @@
   --gray: #b9bdcf;
   --dark-gray: #9194a5;
   --black: #1a1b1d;
+  --modal-backdrop: rgba(26, 27, 29, 0.9);
 }
 
 * {

@@ -1,0 +1,74 @@
+.productModalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--modal-backdrop);
+  z-index: 2;
+}
+
+.productModal {
+  width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 8px 32px rgba(17, 18, 20, 0.158514);
+}
+
+.productModalPhoto {
+  position: relative;
+  height: 354px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px 8px 0 0;
+}
+
+.productModalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: var(--bg-gray);
+  border: none;
+  cursor: pointer;
+}
+
+.productModalPromo {
+  position: absolute;
+  width: 75px;
+  top: 24px;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: var(--yellow);
+  color: white;
+  text-align: center;
+}
+
+.productModalName {
+  font-size: 24px;
+  line-height: 40px;
+  color: var(--black);
+  margin: 0;
+}
+
+.productModaltDescription {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--dark-gray);
+  margin: 8px 0 0;
+}
+
+.productModalContent {
+  padding: 24px;
+}
