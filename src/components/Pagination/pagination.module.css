@@ -12,25 +12,25 @@
   align-items: center;
 }
 
-.paginationFirstPage,
-.paginationLastPage,
-.paginationPage {
+.paginationFirstButton,
+.paginationLastButton,
+.paginationButton {
   cursor: pointer;
   background-color: transparent;
   border: none;
 }
 
-.paginationFirstPage,
-.paginationLastPage {
+.paginationFirstButton,
+.paginationLastButton {
   width: 33px;
   text-align: center;
 }
 
-.paginationFirstPage {
+.paginationFirstButton {
   margin: 0 25px 0 20px;
 }
 
-.paginationLastPage {
+.paginationLastButton {
   margin: 0 20px 0 25px;
 }
 

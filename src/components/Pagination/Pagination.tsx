@@ -11,18 +11,18 @@ const Pagination = ({
   updateProductsSearch,
 }: PaginationProps) => {
   const paginationPartLength = 3;
-  const paginationFirstPageClasses = clsx(
-    styles.paginationFirstPage,
+  const paginationFirstButtonClasses = clsx(
+    styles.paginationFirstButton,
     Number(meta.currentPage) === 1 && styles.paginationDisable
   );
-  const paginationLastPageClasses = clsx(
-    styles.paginationLastPage,
+  const paginationLastButtonClasses = clsx(
+    styles.paginationLastButton,
     Number(meta.currentPage) === meta.totalPages && styles.paginationDisable
   );
 
-  const paginationPageClasses = (page: number) => {
+  const paginationButtonClasses = (page: number) => {
     return clsx(
-      styles.paginationPage,
+      styles.paginationButton,
       Number(meta.currentPage) === page && styles.paginationActivePage
     );
   };
@@ -34,7 +34,7 @@ const Pagination = ({
     }
 
     if (currentPage >= meta.totalPages - paginationPartLength) {
-      return [1, 2, 3];
+      return Array.from({ length: 3 }, (_, i) => i + 1);
     }
 
     return [currentPage - 1, currentPage, currentPage + 1];
@@ -70,7 +70,7 @@ const Pagination = ({
     <section className={styles.paginationWrapper}>
       <nav className={styles.pagination}>
         <button
-          className={paginationFirstPageClasses}
+          className={paginationFirstButtonClasses}
           onClick={() => handlePageChange(1)}
         >
           First
@@ -78,7 +78,7 @@ const Pagination = ({
         {firstPaginationPart().map((page) => (
           <button
             key={page}
-            className={paginationPageClasses(page)}
+            className={paginationButtonClasses(page)}
             onClick={() => handlePageChange(page)}
           >
             {page}
@@ -88,14 +88,14 @@ const Pagination = ({
         {secondPaginationPart().map((page) => (
           <button
             key={page}
-            className={paginationPageClasses(page)}
+            className={paginationButtonClasses(page)}
             onClick={() => handlePageChange(page)}
           >
             {page}
           </button>
         ))}
         <button
-          className={paginationLastPageClasses}
+          className={paginationLastButtonClasses}
           onClick={() => handlePageChange(meta.totalPages)}
         >
           Last
