@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { CheckboxProps } from './CustomCheckbox.interface';
 import styles from './customCheckbox.module.css';
-
-interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-}
 
 const CustomCheckbox = ({ label, ...props }: CheckboxProps) => {
   return (

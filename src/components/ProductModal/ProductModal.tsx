@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { ProductModalProps } from 'components/ProductModal/ProductModal.type';
 import styles from './productModal.module.css';
-import { Product } from 'api/types/Product.type';
 import close from 'assets/close.svg';
 
-type ProductProps = {
-  product: Product;
-  closeCallback: Function;
-};
-
-const ProductModal = ({ product, closeCallback }: ProductProps) => {
+const ProductModal = ({ product, closeCallback }: ProductModalProps) => {
   return (
     <>
       <div className={styles.productModalWrapper}>

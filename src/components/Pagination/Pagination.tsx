@@ -2,15 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
+import { PaginationProps } from './Pagination.type';
 import styles from './pagination.module.css';
-import { ResponseMeta } from 'api/types/ResponseMeta.type';
-import { Search } from 'api/types/ProductsSearch.type';
-
-type PaginationProps = {
-  meta: ResponseMeta;
-  search: Search;
-  updateProductsSearch: Function;
-};
 
 const Pagination = ({
   meta,

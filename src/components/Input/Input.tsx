@@ -2,14 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
+import { InputProps } from './Header.interface';
 import styles from './input.module.css';
-
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  icon?: string;
-  iconAlt?: string;
-  className?: string;
-}
 
 const Input = ({ label, icon, iconAlt, className, ...props }: InputProps) => {
   return (

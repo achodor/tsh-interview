@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { ProductsListProps } from './ProductsList.type';
 import styles from './productsList.module.css';
-import { Product as ProductType } from 'api/types/Product.type';
 import Product from 'components/Product/Product';
-
-type ProductsListProps = {
-  products: ProductType[];
-};
 
 const ProductsList = ({ products }: ProductsListProps) => {
   return (

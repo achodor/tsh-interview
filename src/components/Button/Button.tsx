@@ -2,11 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
+import { ButtonProps } from './Button.interface';
 import styles from './button.module.css';
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  outline?: boolean;
-}
 
 const Button = ({ className, outline, disabled, ...props }: ButtonProps) => {
   const classNames = clsx(

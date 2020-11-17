@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { HeadersProps } from './Header.type';
 import styles from './header.module.css';
 import logo from 'assets/logo.svg';
 import searchIcon from 'assets/search.svg';
 import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
 import CustomCheckbox from 'components/CustomCheckbox/CustomCheckbox';
-import { Search } from 'api/types/ProductsSearch.type';
-
-type HeadersProps = {
-  search: Search;
-  updateProductsSearch: Function;
-};
 
 const Header = ({ search, updateProductsSearch }: HeadersProps) => {
   const handleSearchChange = (e: any) => {

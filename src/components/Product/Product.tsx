@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { ProductProps } from './Product.type';
 import styles from './product.module.css';
-import { Product as ProductType } from 'api/types/Product.type';
 import Button from 'components/Button/Button';
 import ProductRating from 'components/ProductRating/ProductRating';
 import ProductModal from 'components/ProductModal/ProductModal';
-
-type ProductProps = {
-  product: ProductType;
-};
 
 const Product = ({ product }: ProductProps) => {
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);

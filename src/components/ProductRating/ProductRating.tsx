@@ -2,14 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
+import { ProductRatingProps } from './ProductRating.type';
 import styles from './productRating.module.css';
 import { ReactComponent as Star } from 'assets/star.svg';
 import { ReactComponent as StarBorder } from 'assets/star_border.svg';
-
-type ProductRatingProps = {
-  rating: number;
-  className?: string;
-};
 
 const ProductRating = ({ rating, className }: ProductRatingProps) => {
   const maxRating = 5;
