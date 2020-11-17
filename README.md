@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and modified by TSH team for the recruit process.
+App for recruitment process to TSH. Project build with React (CSS modules, react-query).
 
 ## Quick Start
 
@@ -7,7 +7,7 @@ To start the development:
 ```
 mkdir new-project
 cd new-project/
-git clone git@github.com:TheSoftwareHouse/react-interview-starter-ts.git .
+git clone git@github.com:achodor/tsh-interview.git .
 rm -r .git
 npm install
 cd e2e
